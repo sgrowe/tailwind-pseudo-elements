@@ -42,7 +42,7 @@ module.exports = {
 
 ```html
 <p
-  class="before-el-inset-0 before:bg-green-500 before:rounded-sm before:opacity-80"
+  class="before-inset-0 before:bg-green-500 before:rounded-sm before:opacity-80"
 >
   Check out this sumptuous green rectangle
 </p>
@@ -58,18 +58,18 @@ When you add the `before` or `after` variants to a plugin, additional classes wi
 }
 ```
 
-To reduce the boilerplate of creating a pseudo-element there are `.before-el` and `.before-el-inset-0` helper classes (plus `.after-el` & `.after-el-inset-0`) which look like this:
+To reduce the boilerplate of creating a pseudo-element there are `.before-content` and `.before-inset-0` helper classes (plus `.after-content` & `.after-inset-0`) which look like this:
 
 ```css
-.before-el::before {
+.before-content::before {
   content: var(--before-content, '');
 }
 
-.before-el-inset-0 {
+.before-inset-0 {
   position: relative;
 }
 
-.before-el-inset-0::before {
+.before-inset-0::before {
   content: var(--before-content, '');
   position: absolute;
   top: 0;
@@ -82,7 +82,7 @@ To reduce the boilerplate of creating a pseudo-element there are `.before-el` an
 You can then modify or override those base styles as needed using `before:` or `after:` prefixed classes.
 
 ```html
-<p class="before-el-inset-0 before:top-auto before:h-2 before:bg-green-500">
+<p class="before-inset-0 before:top-auto before:h-2 before:bg-green-500">
   Wow, how convenient is that?
 </p>
 ```
@@ -91,12 +91,15 @@ The above example creates
 
 ## Pseudo-element content
 
-The `.before-el` and `.after-el` classes both set the pseudo-element’s [content](https://css-tricks.com/css-content/) to the `--before-content` and `--after-content` [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) (or it defaults to the empty string if those are not set).
+The `.before-content` and `.after-content` classes both set the pseudo-element’s [content](https://css-tricks.com/css-content/) to the `--before-content` and `--after-content` [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) (or it defaults to the empty string if those are not set).
 
 This lets you control the content of the pseudo-elements using either HTML or Javascript:
 
 ```html
-<p style="--before-content: 'You have to check this out: '" class="before-el">
+<p
+  style="--before-content: 'You have to check this out: '"
+  class="before-content"
+>
   Amazing deals like you’ve never seen before! At these prices I'm practically
   giving them away! When you see how low our prices are you’ll think I’ve gone
   insane!

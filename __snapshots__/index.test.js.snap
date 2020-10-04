@@ -11,15 +11,15 @@ exports[`works 1`] = `
     height: auto;
   }
 
-+ .before-el::before {
++ .before-content::before {
 +   content: var(--before-content, '');
 + }
 +
-+ .before-el-inset-0 {
++ .before-inset-0 {
 +   position: relative;
 + }
 +
-+ .before-el-inset-0::before {
++ .before-inset-0::before {
 +   content: var(--before-content, '');
 +   position: absolute;
 +   top: 0;
@@ -28,15 +28,15 @@ exports[`works 1`] = `
 +   bottom: 0;
 + }
 +
-+ .after-el::after {
++ .after-content::after {
 +   content: var(--after-content, '');
 + }
 +
-+ .after-el-inset-0 {
++ .after-inset-0 {
 +   position: relative;
 + }
 +
-+ .after-el-inset-0::after {
++ .after-inset-0::after {
 +   content: var(--after-content, '');
 +   position: absolute;
 +   top: 0;

@@ -9,13 +9,13 @@ const pseudoElementVariants = plugin(function ({
 
   for (const element of elements) {
     addComponents({
-      [`.${e(`${element}-el`)}::${element}`]: {
+      [`.${e(`${element}-content`)}::${element}`]: {
         content: `var(--${element}-content, '')`,
       },
-      [`.${e(`${element}-el-inset-0`)}`]: {
+      [`.${e(`${element}-inset-0`)}`]: {
         position: 'relative',
       },
-      [`.${e(`${element}-el-inset-0`)}::${element}`]: {
+      [`.${e(`${element}-inset-0`)}::${element}`]: {
         content: `var(--${element}-content, '')`,
         position: 'absolute',
         top: 0,
