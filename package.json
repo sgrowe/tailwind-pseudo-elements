@@ -1,14 +1,11 @@
 {
   "name": "tailwind-pseudo-elements",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Pseudo element variants for Tailwind CSS",
   "main": "index.js",
   "repository": "https://github.com/sgrowe/tailwind-pseudo-element.git",
   "author": "Sam Rowe <sam.rowe@hey.com>",
   "license": "MIT",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "scripts": {
     "test": "jest"
   },
