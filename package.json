@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "description": "Pseudo element variants for Tailwind CSS",
   "main": "index.js",
-  "repository": "https://github.com/sgrowe/tailwind-pseudo-element.git",
+  "repository": "https://github.com/sgrowe/tailwind-pseudo-elements.git",
   "author": "Sam Rowe <sam.rowe@hey.com>",
   "license": "MIT",
   "scripts": {
