@@ -1,15 +1,22 @@
 {
-  "name": "tailwind-pseudo-element",
+  "name": "tailwind-pseudo-elements",
   "version": "0.1.0",
   "description": "Pseudo element variants for Tailwind CSS",
   "main": "index.js",
   "repository": "https://github.com/sgrowe/tailwind-pseudo-element.git",
   "author": "Sam Rowe <sam.rowe@hey.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
   "peerDependencies": {
     "tailwindcss": "^1.8.0"
   },
   "devDependencies": {
-    "prettier": "^2.1.2"
+    "jest": "^26.4.2",
+    "postcss": "^8.1.1",
+    "prettier": "^2.1.2",
+    "snapshot-diff": "^0.8.1",
+    "tailwindcss": "^1.8.10"
   }
 }
