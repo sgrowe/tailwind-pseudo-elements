@@ -6,6 +6,9 @@
   "repository": "https://github.com/sgrowe/tailwind-pseudo-element.git",
   "author": "Sam Rowe <sam.rowe@hey.com>",
   "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
     "test": "jest"
   },
