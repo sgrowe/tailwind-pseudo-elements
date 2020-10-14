@@ -79,6 +79,8 @@ To reduce the boilerplate of creating a pseudo-element there are `.before-conten
 }
 ```
 
+There’s also `.before-inset-x-0` and `.before-inset-y-0` which only set `left`/`right` and `top`/`bottom`.
+
 You can then modify or override those base styles as needed using `before:` or `after:` prefixed classes.
 
 ```html

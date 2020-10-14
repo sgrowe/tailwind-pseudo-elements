@@ -12,15 +12,35 @@ const pseudoElementVariants = plugin(function ({
       [`.${e(`${element}-content`)}::${element}`]: {
         content: `var(--${element}-content, '')`,
       },
-      [`.${e(`${element}-inset-0`)}`]: {
-        position: 'relative',
-      },
+    })
+
+    for (const inset of ['inset-0', 'inset-x-0', 'inset-y-0']) {
+      addComponents({
+        [`.${e(`${element}-${inset}`)}`]: {
+          position: 'relative',
+        },
+      })
+    }
+
+    addComponents({
       [`.${e(`${element}-inset-0`)}::${element}`]: {
         content: `var(--${element}-content, '')`,
         position: 'absolute',
         top: 0,
         left: 0,
         right: 0,
+        bottom: 0,
+      },
+      [`.${e(`${element}-inset-x-0`)}::${element}`]: {
+        content: `var(--${element}-content, '')`,
+        position: 'absolute',
+        left: 0,
+        right: 0,
+      },
+      [`.${e(`${element}-inset-y-0`)}::${element}`]: {
+        content: `var(--${element}-content, '')`,
+        position: 'absolute',
+        top: 0,
         bottom: 0,
       },
     })

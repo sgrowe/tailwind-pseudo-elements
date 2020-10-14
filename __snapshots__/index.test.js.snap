@@ -5,7 +5,7 @@ exports[`works 1`] = `
 - First value
 + Second value
 
-@@ -575,10 +575,44 @@
+@@ -575,10 +575,88 @@
   video {
     max-width: 100%;
     height: auto;
@@ -19,6 +19,14 @@ exports[`works 1`] = `
 +   position: relative;
 + }
 +
++ .before-inset-x-0 {
++   position: relative;
++ }
++
++ .before-inset-y-0 {
++   position: relative;
++ }
++
 + .before-inset-0::before {
 +   content: var(--before-content, '');
 +   position: absolute;
@@ -28,11 +36,33 @@ exports[`works 1`] = `
 +   bottom: 0;
 + }
 +
++ .before-inset-x-0::before {
++   content: var(--before-content, '');
++   position: absolute;
++   left: 0;
++   right: 0;
++ }
++
++ .before-inset-y-0::before {
++   content: var(--before-content, '');
++   position: absolute;
++   top: 0;
++   bottom: 0;
++ }
++
 + .after-content::after {
 +   content: var(--after-content, '');
 + }
 +
 + .after-inset-0 {
++   position: relative;
++ }
++
++ .after-inset-x-0 {
++   position: relative;
++ }
++
++ .after-inset-y-0 {
 +   position: relative;
 + }
 +
@@ -45,17 +75,32 @@ exports[`works 1`] = `
 +   bottom: 0;
 + }
 +
++ .after-inset-x-0::after {
++   content: var(--after-content, '');
++   position: absolute;
++   left: 0;
++   right: 0;
++ }
++
++ .after-inset-y-0::after {
++   content: var(--after-content, '');
++   position: absolute;
++   top: 0;
++   bottom: 0;
++ }
++
   .m-auto {
     margin: auto;
   }
 
   .m-sm {
-@@ -843,12 +877,552 @@
+@@ -842,10 +920,550 @@
+  .-mb-xl {
     margin-bottom: -48px;
   }
 
   .-ml-xl {
-    margin-left: -48px;
++   margin-left: -48px;
 + }
 +
 + .before\\\\:m-auto::before {
@@ -64,8 +109,8 @@ exports[`works 1`] = `
 +
 + .before\\\\:m-sm::before {
 +   margin: 8px;
-  }
-
++ }
++
 + .before\\\\:m-md::before {
 +   margin: 16px;
 + }
@@ -595,31 +640,27 @@ exports[`works 1`] = `
 + }
 +
 + .after\\\\:-ml-xl::after {
-+   margin-left: -48px;
-+ }
-+
-  .p-sm {
-    padding: 8px;
+    margin-left: -48px;
   }
 
-  .p-md {
-@@ -986,13 +1560,29 @@
-  .focus\\\\:bg-black:focus {
+  .p-sm {
+    padding: 8px;
+@@ -987,12 +1605,28 @@
     background-color: black;
   }
 
   .focus\\\\:bg-white:focus {
-+   background-color: white;
+    background-color: white;
 + }
 +
 + .before\\\\:bg-black::before {
 +   background-color: black;
-+ }
-+
-+ .before\\\\:bg-white::before {
-    background-color: white;
   }
 
++ .before\\\\:bg-white::before {
++   background-color: white;
++ }
++
 + .after\\\\:bg-black::after {
 +   background-color: black;
 + }
@@ -633,12 +674,14 @@ exports[`works 1`] = `
       margin: auto;
     }
 
-@@ -1260,10 +1850,550 @@
+@@ -1258,12 +1892,552 @@
+      margin-bottom: -48px;
+    }
 
     .sm\\\\:-ml-xl {
       margin-left: -48px;
-    }
-
++   }
++
 +   .sm\\\\:before\\\\:m-auto::before {
 +     margin: auto;
 +   }
@@ -683,8 +726,8 @@ exports[`works 1`] = `
 +   .sm\\\\:before\\\\:mx-auto::before {
 +     margin-left: auto;
 +     margin-right: auto;
-+   }
-+
+    }
+
 +   .sm\\\\:before\\\\:my-sm::before {
 +     margin-top: 8px;
 +     margin-bottom: 8px;
@@ -1184,12 +1227,14 @@ exports[`works 1`] = `
     }
 
     .sm\\\\:p-md {
-@@ -1403,10 +2533,26 @@
+@@ -1401,10 +2575,26 @@
+    .sm\\\\:focus\\\\:bg-black:focus {
+      background-color: black;
     }
 
     .sm\\\\:focus\\\\:bg-white:focus {
-      background-color: white;
-    }
++     background-color: white;
++   }
 +
 +   .sm\\\\:before\\\\:bg-black::before {
 +     background-color: black;
@@ -1204,14 +1249,12 @@ exports[`works 1`] = `
 +   }
 +
 +   .sm\\\\:after\\\\:bg-white::after {
-+     background-color: white;
-+   }
+      background-color: white;
+    }
   }
 
   @media (min-width: 768px) {
-    .md\\\\:m-auto {
-      margin: auto;
-@@ -1673,13 +2819,553 @@
+@@ -1673,13 +2863,553 @@
     .md\\\\:-mb-xl {
       margin-bottom: -48px;
     }
@@ -1487,9 +1530,9 @@ exports[`works 1`] = `
 +   }
 +
 +   .md\\\\:before\\\\:-ml-xl::before {
-      margin-left: -48px;
-    }
-
++     margin-left: -48px;
++   }
++
 +   .md\\\\:after\\\\:m-auto::after {
 +     margin: auto;
 +   }
@@ -1612,10 +1655,10 @@ exports[`works 1`] = `
 +   }
 +
 +   .md\\\\:after\\\\:-mx-xl::after {
-+     margin-left: -48px;
+      margin-left: -48px;
 +     margin-right: -48px;
-+   }
-+
+    }
+
 +   .md\\\\:after\\\\:mt-auto::after {
 +     margin-top: auto;
 +   }
@@ -1765,17 +1808,18 @@ exports[`works 1`] = `
     }
 
     .md\\\\:p-md {
-@@ -1818,11 +3504,27 @@
+@@ -1817,10 +3547,26 @@
+    .md\\\\:focus\\\\:bg-black:focus {
       background-color: black;
     }
 
     .md\\\\:focus\\\\:bg-white:focus {
-      background-color: white;
++     background-color: white;
 +   }
 +
 +   .md\\\\:before\\\\:bg-black::before {
 +     background-color: black;
-    }
++   }
 +
 +   .md\\\\:before\\\\:bg-white::before {
 +     background-color: white;
@@ -1786,14 +1830,12 @@ exports[`works 1`] = `
 +   }
 +
 +   .md\\\\:after\\\\:bg-white::after {
-+     background-color: white;
-+   }
+      background-color: white;
+    }
   }
 
   @media (min-width: 1024px) {
-    .lg\\\\:m-auto {
-      margin: auto;
-@@ -2089,10 +3791,550 @@
+@@ -2089,10 +3835,550 @@
     .lg\\\\:-mb-xl {
       margin-bottom: -48px;
     }
@@ -2344,16 +2386,17 @@ exports[`works 1`] = `
 
     .lg\\\\:p-sm {
       padding: 8px;
-@@ -2235,10 +4477,26 @@
+@@ -2234,11 +4520,27 @@
+      background-color: black;
     }
 
     .lg\\\\:focus\\\\:bg-white:focus {
       background-color: white;
-    }
++   }
 +
 +   .lg\\\\:before\\\\:bg-black::before {
 +     background-color: black;
-+   }
+    }
 +
 +   .lg\\\\:before\\\\:bg-white::before {
 +     background-color: white;
@@ -2371,7 +2414,7 @@ exports[`works 1`] = `
   @media (min-width: 1280px) {
     .xl\\\\:m-auto {
       margin: auto;
-@@ -2505,10 +4763,550 @@
+@@ -2505,13 +4807,553 @@
     .xl\\\\:-mb-xl {
       margin-bottom: -48px;
     }
@@ -2502,7 +2545,7 @@ exports[`works 1`] = `
 +   }
 +
 +   .xl\\\\:before\\\\:-mx-xl::before {
-+     margin-left: -48px;
+      margin-left: -48px;
 +     margin-right: -48px;
 +   }
 +
@@ -2544,8 +2587,8 @@ exports[`works 1`] = `
 +
 +   .xl\\\\:before\\\\:mr-md::before {
 +     margin-right: 16px;
-+   }
-+
+    }
+
 +   .xl\\\\:before\\\\:mb-md::before {
 +     margin-bottom: 16px;
 +   }
@@ -2917,12 +2960,15 @@ exports[`works 1`] = `
 +   }
 +
 +   .xl\\\\:after\\\\:-ml-xl::after {
-      margin-left: -48px;
-    }
-
++     margin-left: -48px;
++   }
++
     .xl\\\\:p-sm {
       padding: 8px;
-@@ -2649,10 +5447,26 @@
+    }
+
+    .xl\\\\:p-md {
+@@ -2649,10 +5491,26 @@
     .xl\\\\:focus\\\\:bg-black:focus {
       background-color: black;
     }
