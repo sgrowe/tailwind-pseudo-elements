@@ -43,6 +43,7 @@ module.exports = {
 ```html
 <p
   class="before-inset-0 before:bg-green-500 before:rounded-sm before:opacity-80"
+  data-content-before="Check it out: "
 >
   Check out this sumptuous green rectangle
 </p>
@@ -62,7 +63,7 @@ To reduce the boilerplate of creating a pseudo-element there are `.before-conten
 
 ```css
 .before-content::before {
-  content: var(--before-content, '');
+  content: attr(data-content-before);
 }
 
 .before-inset-0 {
@@ -70,7 +71,7 @@ To reduce the boilerplate of creating a pseudo-element there are `.before-conten
 }
 
 .before-inset-0::before {
-  content: var(--before-content, '');
+  content: attr(data-content-before);
   position: absolute;
   top: 0;
   left: 0;
@@ -93,15 +94,12 @@ The above example creates
 
 ## Pseudo-element content
 
-The `.before-content` and `.after-content` classes both set the pseudo-element’s [content](https://css-tricks.com/css-content/) to the `--before-content` and `--after-content` [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) (or it defaults to the empty string if those are not set).
+The `.before-content` and `.after-content` classes both set the pseudo-element’s [content](https://css-tricks.com/css-content/) to the value of the element’s `data-content-before` and `data-content-after` attributes.
 
 This lets you control the content of the pseudo-elements using either HTML or Javascript:
 
 ```html
-<p
-  style="--before-content: 'You have to check this out: '"
-  class="before-content"
->
+<p class="before-content" data-content-before="You have to check this out: ">
   Amazing deals like you’ve never seen before! At these prices I'm practically
   giving them away! When you see how low our prices are you’ll think I’ve gone
   insane!

@@ -5,14 +5,14 @@ exports[`works 1`] = `
 - First value
 + Second value
 
-@@ -575,10 +575,88 @@
+@@ -534,10 +534,88 @@
   video {
     max-width: 100%;
     height: auto;
   }
 
 + .before-content::before {
-+   content: var(--before-content, '');
++   content: attr(data-content-before);
 + }
 +
 + .before-inset-0 {
@@ -28,7 +28,7 @@ exports[`works 1`] = `
 + }
 +
 + .before-inset-0::before {
-+   content: var(--before-content, '');
++   content: attr(data-content-before);
 +   position: absolute;
 +   top: 0;
 +   left: 0;
@@ -37,21 +37,21 @@ exports[`works 1`] = `
 + }
 +
 + .before-inset-x-0::before {
-+   content: var(--before-content, '');
++   content: attr(data-content-before);
 +   position: absolute;
 +   left: 0;
 +   right: 0;
 + }
 +
 + .before-inset-y-0::before {
-+   content: var(--before-content, '');
++   content: attr(data-content-before);
 +   position: absolute;
 +   top: 0;
 +   bottom: 0;
 + }
 +
 + .after-content::after {
-+   content: var(--after-content, '');
++   content: attr(data-content-after);
 + }
 +
 + .after-inset-0 {
@@ -67,7 +67,7 @@ exports[`works 1`] = `
 + }
 +
 + .after-inset-0::after {
-+   content: var(--after-content, '');
++   content: attr(data-content-after);
 +   position: absolute;
 +   top: 0;
 +   left: 0;
@@ -76,14 +76,14 @@ exports[`works 1`] = `
 + }
 +
 + .after-inset-x-0::after {
-+   content: var(--after-content, '');
++   content: attr(data-content-after);
 +   position: absolute;
 +   left: 0;
 +   right: 0;
 + }
 +
 + .after-inset-y-0::after {
-+   content: var(--after-content, '');
++   content: attr(data-content-after);
 +   position: absolute;
 +   top: 0;
 +   bottom: 0;
@@ -94,7 +94,7 @@ exports[`works 1`] = `
   }
 
   .m-sm {
-@@ -842,10 +920,550 @@
+@@ -801,13 +879,553 @@
   .-mb-xl {
     margin-bottom: -48px;
   }
@@ -370,9 +370,9 @@ exports[`works 1`] = `
 + }
 +
 + .before\\\\:-ml-xl::before {
-+   margin-left: -48px;
-+ }
-+
+    margin-left: -48px;
+  }
+
 + .after\\\\:m-auto::after {
 +   margin: auto;
 + }
@@ -640,27 +640,31 @@ exports[`works 1`] = `
 + }
 +
 + .after\\\\:-ml-xl::after {
-    margin-left: -48px;
-  }
-
++   margin-left: -48px;
++ }
++
   .p-sm {
     padding: 8px;
-@@ -987,12 +1605,28 @@
+  }
+
+  .p-md {
+@@ -961,13 +1579,29 @@
+  .focus\\\\:bg-black:focus {
     background-color: black;
   }
 
   .focus\\\\:bg-white:focus {
-    background-color: white;
++   background-color: white;
 + }
 +
 + .before\\\\:bg-black::before {
 +   background-color: black;
-  }
-
-+ .before\\\\:bg-white::before {
-+   background-color: white;
 + }
 +
++ .before\\\\:bg-white::before {
+    background-color: white;
+  }
+
 + .after\\\\:bg-black::after {
 +   background-color: black;
 + }
@@ -674,12 +678,13 @@ exports[`works 1`] = `
       margin: auto;
     }
 
-@@ -1258,12 +1892,552 @@
+@@ -1232,13 +1866,553 @@
+    .sm\\\\:-mb-xl {
       margin-bottom: -48px;
     }
 
     .sm\\\\:-ml-xl {
-      margin-left: -48px;
++     margin-left: -48px;
 +   }
 +
 +   .sm\\\\:before\\\\:m-auto::before {
@@ -726,8 +731,8 @@ exports[`works 1`] = `
 +   .sm\\\\:before\\\\:mx-auto::before {
 +     margin-left: auto;
 +     margin-right: auto;
-    }
-
++   }
++
 +   .sm\\\\:before\\\\:my-sm::before {
 +     margin-top: 8px;
 +     margin-bottom: 8px;
@@ -804,7 +809,7 @@ exports[`works 1`] = `
 +   }
 +
 +   .sm\\\\:before\\\\:-mx-xl::before {
-+     margin-left: -48px;
+      margin-left: -48px;
 +     margin-right: -48px;
 +   }
 +
@@ -846,8 +851,8 @@ exports[`works 1`] = `
 +
 +   .sm\\\\:before\\\\:mr-md::before {
 +     margin-right: 16px;
-+   }
-+
+    }
+
 +   .sm\\\\:before\\\\:mb-md::before {
 +     margin-bottom: 16px;
 +   }
@@ -1227,7 +1232,7 @@ exports[`works 1`] = `
     }
 
     .sm\\\\:p-md {
-@@ -1401,10 +2575,26 @@
+@@ -1392,10 +2566,26 @@
     .sm\\\\:focus\\\\:bg-black:focus {
       background-color: black;
     }
@@ -1254,7 +1259,7 @@ exports[`works 1`] = `
   }
 
   @media (min-width: 768px) {
-@@ -1673,13 +2863,553 @@
+@@ -1664,10 +2854,550 @@
     .md\\\\:-mb-xl {
       margin-bottom: -48px;
     }
@@ -1655,10 +1660,10 @@ exports[`works 1`] = `
 +   }
 +
 +   .md\\\\:after\\\\:-mx-xl::after {
-      margin-left: -48px;
++     margin-left: -48px;
 +     margin-right: -48px;
-    }
-
++   }
++
 +   .md\\\\:after\\\\:mt-auto::after {
 +     margin-top: auto;
 +   }
@@ -1800,26 +1805,22 @@ exports[`works 1`] = `
 +   }
 +
 +   .md\\\\:after\\\\:-ml-xl::after {
-+     margin-left: -48px;
-+   }
-+
-    .md\\\\:p-sm {
-      padding: 8px;
+      margin-left: -48px;
     }
 
-    .md\\\\:p-md {
-@@ -1817,10 +3547,26 @@
-    .md\\\\:focus\\\\:bg-black:focus {
+    .md\\\\:p-sm {
+      padding: 8px;
+@@ -1825,11 +3555,27 @@
       background-color: black;
     }
 
     .md\\\\:focus\\\\:bg-white:focus {
-+     background-color: white;
+      background-color: white;
 +   }
 +
 +   .md\\\\:before\\\\:bg-black::before {
 +     background-color: black;
-+   }
+    }
 +
 +   .md\\\\:before\\\\:bg-white::before {
 +     background-color: white;
@@ -1830,12 +1831,14 @@ exports[`works 1`] = `
 +   }
 +
 +   .md\\\\:after\\\\:bg-white::after {
-      background-color: white;
-    }
++     background-color: white;
++   }
   }
 
   @media (min-width: 1024px) {
-@@ -2089,10 +3835,550 @@
+    .lg\\\\:m-auto {
+      margin: auto;
+@@ -2096,13 +3842,553 @@
     .lg\\\\:-mb-xl {
       margin-bottom: -48px;
     }
@@ -2111,7 +2114,7 @@ exports[`works 1`] = `
 +   }
 +
 +   .lg\\\\:before\\\\:-ml-xl::before {
-+     margin-left: -48px;
+      margin-left: -48px;
 +   }
 +
 +   .lg\\\\:after\\\\:m-auto::after {
@@ -2163,8 +2166,8 @@ exports[`works 1`] = `
 +   .lg\\\\:after\\\\:my-sm::after {
 +     margin-top: 8px;
 +     margin-bottom: 8px;
-+   }
-+
+    }
+
 +   .lg\\\\:after\\\\:mx-sm::after {
 +     margin-left: 8px;
 +     margin-right: 8px;
@@ -2381,22 +2384,26 @@ exports[`works 1`] = `
 +   }
 +
 +   .lg\\\\:after\\\\:-ml-xl::after {
-      margin-left: -48px;
-    }
-
++     margin-left: -48px;
++   }
++
     .lg\\\\:p-sm {
       padding: 8px;
-@@ -2234,11 +4520,27 @@
+    }
+
+    .lg\\\\:p-md {
+@@ -2256,10 +4542,26 @@
+    .lg\\\\:focus\\\\:bg-black:focus {
       background-color: black;
     }
 
     .lg\\\\:focus\\\\:bg-white:focus {
-      background-color: white;
++     background-color: white;
 +   }
 +
 +   .lg\\\\:before\\\\:bg-black::before {
 +     background-color: black;
-    }
++   }
 +
 +   .lg\\\\:before\\\\:bg-white::before {
 +     background-color: white;
@@ -2407,14 +2414,12 @@ exports[`works 1`] = `
 +   }
 +
 +   .lg\\\\:after\\\\:bg-white::after {
-+     background-color: white;
-+   }
+      background-color: white;
+    }
   }
 
   @media (min-width: 1280px) {
-    .xl\\\\:m-auto {
-      margin: auto;
-@@ -2505,13 +4807,553 @@
+@@ -2528,10 +4830,550 @@
     .xl\\\\:-mb-xl {
       margin-bottom: -48px;
     }
@@ -2545,7 +2550,7 @@ exports[`works 1`] = `
 +   }
 +
 +   .xl\\\\:before\\\\:-mx-xl::before {
-      margin-left: -48px;
++     margin-left: -48px;
 +     margin-right: -48px;
 +   }
 +
@@ -2587,8 +2592,8 @@ exports[`works 1`] = `
 +
 +   .xl\\\\:before\\\\:mr-md::before {
 +     margin-right: 16px;
-    }
-
++   }
++
 +   .xl\\\\:before\\\\:mb-md::before {
 +     margin-bottom: 16px;
 +   }
@@ -2960,15 +2965,12 @@ exports[`works 1`] = `
 +   }
 +
 +   .xl\\\\:after\\\\:-ml-xl::after {
-+     margin-left: -48px;
-+   }
-+
-    .xl\\\\:p-sm {
-      padding: 8px;
+      margin-left: -48px;
     }
 
-    .xl\\\\:p-md {
-@@ -2649,10 +5491,26 @@
+    .xl\\\\:p-sm {
+      padding: 8px;
+@@ -2688,10 +5530,26 @@
     .xl\\\\:focus\\\\:bg-black:focus {
       background-color: black;
     }
@@ -2990,6 +2992,587 @@ exports[`works 1`] = `
 +   }
 +
 +   .xl\\\\:after\\\\:bg-white::after {
+      background-color: white;
+    }
+  }
+
+  @media (min-width: 1536px) {
+@@ -2960,13 +5818,553 @@
+    .\\\\32xl\\\\:-mb-xl {
+      margin-bottom: -48px;
+    }
+
+    .\\\\32xl\\\\:-ml-xl {
++     margin-left: -48px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:m-auto::before {
++     margin: auto;
++   }
++
++   .\\\\32xl\\\\:before\\\\:m-sm::before {
++     margin: 8px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:m-md::before {
++     margin: 16px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:m-lg::before {
++     margin: 24px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:m-xl::before {
++     margin: 48px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:-m-sm::before {
++     margin: -8px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:-m-md::before {
++     margin: -16px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:-m-lg::before {
++     margin: -24px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:-m-xl::before {
++     margin: -48px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:my-auto::before {
++     margin-top: auto;
++     margin-bottom: auto;
++   }
++
++   .\\\\32xl\\\\:before\\\\:mx-auto::before {
++     margin-left: auto;
++     margin-right: auto;
++   }
++
++   .\\\\32xl\\\\:before\\\\:my-sm::before {
++     margin-top: 8px;
++     margin-bottom: 8px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:mx-sm::before {
++     margin-left: 8px;
++     margin-right: 8px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:my-md::before {
++     margin-top: 16px;
++     margin-bottom: 16px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:mx-md::before {
++     margin-left: 16px;
++     margin-right: 16px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:my-lg::before {
++     margin-top: 24px;
++     margin-bottom: 24px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:mx-lg::before {
++     margin-left: 24px;
++     margin-right: 24px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:my-xl::before {
++     margin-top: 48px;
++     margin-bottom: 48px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:mx-xl::before {
++     margin-left: 48px;
++     margin-right: 48px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:-my-sm::before {
++     margin-top: -8px;
++     margin-bottom: -8px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:-mx-sm::before {
++     margin-left: -8px;
++     margin-right: -8px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:-my-md::before {
++     margin-top: -16px;
++     margin-bottom: -16px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:-mx-md::before {
++     margin-left: -16px;
++     margin-right: -16px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:-my-lg::before {
++     margin-top: -24px;
++     margin-bottom: -24px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:-mx-lg::before {
++     margin-left: -24px;
++     margin-right: -24px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:-my-xl::before {
++     margin-top: -48px;
++     margin-bottom: -48px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:-mx-xl::before {
++     margin-left: -48px;
++     margin-right: -48px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:mt-auto::before {
++     margin-top: auto;
++   }
++
++   .\\\\32xl\\\\:before\\\\:mr-auto::before {
++     margin-right: auto;
++   }
++
++   .\\\\32xl\\\\:before\\\\:mb-auto::before {
++     margin-bottom: auto;
++   }
++
++   .\\\\32xl\\\\:before\\\\:ml-auto::before {
++     margin-left: auto;
++   }
++
++   .\\\\32xl\\\\:before\\\\:mt-sm::before {
++     margin-top: 8px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:mr-sm::before {
++     margin-right: 8px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:mb-sm::before {
++     margin-bottom: 8px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:ml-sm::before {
++     margin-left: 8px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:mt-md::before {
++     margin-top: 16px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:mr-md::before {
++     margin-right: 16px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:mb-md::before {
++     margin-bottom: 16px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:ml-md::before {
++     margin-left: 16px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:mt-lg::before {
++     margin-top: 24px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:mr-lg::before {
++     margin-right: 24px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:mb-lg::before {
++     margin-bottom: 24px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:ml-lg::before {
++     margin-left: 24px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:mt-xl::before {
++     margin-top: 48px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:mr-xl::before {
++     margin-right: 48px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:mb-xl::before {
++     margin-bottom: 48px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:ml-xl::before {
++     margin-left: 48px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:-mt-sm::before {
++     margin-top: -8px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:-mr-sm::before {
++     margin-right: -8px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:-mb-sm::before {
++     margin-bottom: -8px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:-ml-sm::before {
++     margin-left: -8px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:-mt-md::before {
++     margin-top: -16px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:-mr-md::before {
++     margin-right: -16px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:-mb-md::before {
++     margin-bottom: -16px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:-ml-md::before {
++     margin-left: -16px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:-mt-lg::before {
++     margin-top: -24px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:-mr-lg::before {
++     margin-right: -24px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:-mb-lg::before {
++     margin-bottom: -24px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:-ml-lg::before {
++     margin-left: -24px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:-mt-xl::before {
++     margin-top: -48px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:-mr-xl::before {
++     margin-right: -48px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:-mb-xl::before {
++     margin-bottom: -48px;
++   }
++
++   .\\\\32xl\\\\:before\\\\:-ml-xl::before {
+      margin-left: -48px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:m-auto::after {
++     margin: auto;
++   }
++
++   .\\\\32xl\\\\:after\\\\:m-sm::after {
++     margin: 8px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:m-md::after {
++     margin: 16px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:m-lg::after {
++     margin: 24px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:m-xl::after {
++     margin: 48px;
+    }
+
++   .\\\\32xl\\\\:after\\\\:-m-sm::after {
++     margin: -8px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:-m-md::after {
++     margin: -16px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:-m-lg::after {
++     margin: -24px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:-m-xl::after {
++     margin: -48px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:my-auto::after {
++     margin-top: auto;
++     margin-bottom: auto;
++   }
++
++   .\\\\32xl\\\\:after\\\\:mx-auto::after {
++     margin-left: auto;
++     margin-right: auto;
++   }
++
++   .\\\\32xl\\\\:after\\\\:my-sm::after {
++     margin-top: 8px;
++     margin-bottom: 8px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:mx-sm::after {
++     margin-left: 8px;
++     margin-right: 8px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:my-md::after {
++     margin-top: 16px;
++     margin-bottom: 16px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:mx-md::after {
++     margin-left: 16px;
++     margin-right: 16px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:my-lg::after {
++     margin-top: 24px;
++     margin-bottom: 24px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:mx-lg::after {
++     margin-left: 24px;
++     margin-right: 24px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:my-xl::after {
++     margin-top: 48px;
++     margin-bottom: 48px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:mx-xl::after {
++     margin-left: 48px;
++     margin-right: 48px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:-my-sm::after {
++     margin-top: -8px;
++     margin-bottom: -8px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:-mx-sm::after {
++     margin-left: -8px;
++     margin-right: -8px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:-my-md::after {
++     margin-top: -16px;
++     margin-bottom: -16px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:-mx-md::after {
++     margin-left: -16px;
++     margin-right: -16px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:-my-lg::after {
++     margin-top: -24px;
++     margin-bottom: -24px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:-mx-lg::after {
++     margin-left: -24px;
++     margin-right: -24px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:-my-xl::after {
++     margin-top: -48px;
++     margin-bottom: -48px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:-mx-xl::after {
++     margin-left: -48px;
++     margin-right: -48px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:mt-auto::after {
++     margin-top: auto;
++   }
++
++   .\\\\32xl\\\\:after\\\\:mr-auto::after {
++     margin-right: auto;
++   }
++
++   .\\\\32xl\\\\:after\\\\:mb-auto::after {
++     margin-bottom: auto;
++   }
++
++   .\\\\32xl\\\\:after\\\\:ml-auto::after {
++     margin-left: auto;
++   }
++
++   .\\\\32xl\\\\:after\\\\:mt-sm::after {
++     margin-top: 8px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:mr-sm::after {
++     margin-right: 8px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:mb-sm::after {
++     margin-bottom: 8px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:ml-sm::after {
++     margin-left: 8px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:mt-md::after {
++     margin-top: 16px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:mr-md::after {
++     margin-right: 16px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:mb-md::after {
++     margin-bottom: 16px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:ml-md::after {
++     margin-left: 16px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:mt-lg::after {
++     margin-top: 24px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:mr-lg::after {
++     margin-right: 24px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:mb-lg::after {
++     margin-bottom: 24px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:ml-lg::after {
++     margin-left: 24px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:mt-xl::after {
++     margin-top: 48px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:mr-xl::after {
++     margin-right: 48px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:mb-xl::after {
++     margin-bottom: 48px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:ml-xl::after {
++     margin-left: 48px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:-mt-sm::after {
++     margin-top: -8px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:-mr-sm::after {
++     margin-right: -8px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:-mb-sm::after {
++     margin-bottom: -8px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:-ml-sm::after {
++     margin-left: -8px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:-mt-md::after {
++     margin-top: -16px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:-mr-md::after {
++     margin-right: -16px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:-mb-md::after {
++     margin-bottom: -16px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:-ml-md::after {
++     margin-left: -16px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:-mt-lg::after {
++     margin-top: -24px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:-mr-lg::after {
++     margin-right: -24px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:-mb-lg::after {
++     margin-bottom: -24px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:-ml-lg::after {
++     margin-left: -24px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:-mt-xl::after {
++     margin-top: -48px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:-mr-xl::after {
++     margin-right: -48px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:-mb-xl::after {
++     margin-bottom: -48px;
++   }
++
++   .\\\\32xl\\\\:after\\\\:-ml-xl::after {
++     margin-left: -48px;
++   }
++
+    .\\\\32xl\\\\:p-sm {
+      padding: 8px;
+    }
+
+    .\\\\32xl\\\\:p-md {
+@@ -3120,10 +6518,26 @@
+    .\\\\32xl\\\\:focus\\\\:bg-black:focus {
+      background-color: black;
+    }
+
+    .\\\\32xl\\\\:focus\\\\:bg-white:focus {
++     background-color: white;
++   }
++
++   .\\\\32xl\\\\:before\\\\:bg-black::before {
++     background-color: black;
++   }
++
++   .\\\\32xl\\\\:before\\\\:bg-white::before {
++     background-color: white;
++   }
++
++   .\\\\32xl\\\\:after\\\\:bg-black::after {
++     background-color: black;
++   }
++
++   .\\\\32xl\\\\:after\\\\:bg-white::after {
       background-color: white;
     }
   }

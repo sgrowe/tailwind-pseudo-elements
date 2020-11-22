@@ -10,7 +10,7 @@ const pseudoElementVariants = plugin(function ({
   for (const element of elements) {
     addComponents({
       [`.${e(`${element}-content`)}::${element}`]: {
-        content: `var(--${element}-content, '')`,
+        content: `attr(data-content-${element})`,
       },
     })
 
@@ -24,7 +24,7 @@ const pseudoElementVariants = plugin(function ({
 
     addComponents({
       [`.${e(`${element}-inset-0`)}::${element}`]: {
-        content: `var(--${element}-content, '')`,
+        content: `attr(data-content-${element})`,
         position: 'absolute',
         top: 0,
         left: 0,
@@ -32,13 +32,13 @@ const pseudoElementVariants = plugin(function ({
         bottom: 0,
       },
       [`.${e(`${element}-inset-x-0`)}::${element}`]: {
-        content: `var(--${element}-content, '')`,
+        content: `attr(data-content-${element})`,
         position: 'absolute',
         left: 0,
         right: 0,
       },
       [`.${e(`${element}-inset-y-0`)}::${element}`]: {
-        content: `var(--${element}-content, '')`,
+        content: `attr(data-content-${element})`,
         position: 'absolute',
         top: 0,
         bottom: 0,
